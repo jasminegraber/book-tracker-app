@@ -1,6 +1,7 @@
 BEGIN TRANSACTION;
 
 
+DROP TABLE IF EXISTS genre;
 DROP TABLE IF EXISTS recommendation;
 DROP TABLE IF EXISTS author;
 
@@ -34,9 +35,9 @@ CREATE TABLE genre (
         genre_name varchar(100) NOT NULL, --constraint
         
         CONSTRAINT pk_genre PRIMARY KEY (genre_id),
-        
-        
-
+        CONSTRAINT CHK_genre_name CHECK (genre_name IN ('Brain Candy', 'Children', 'Classic', 'Contemporary Fiction', 'Dystopian', 'Fantasy', 'General Nonfiction', 'Graphic Novel', 'Historical Fiction', 'Horror', 
+                                                        'Literary Fiction', 'Mystery', 'Memoirs/Essays', 'Mental Health', 'Middle Grade', 'Other', 'Poetry', 'Post-Apocolyptic Fiction', 'Romance', 'Sci-Fi',
+                                                         'Short Stories', 'Thriller', 'Young Adult' ))
 
 );
 
