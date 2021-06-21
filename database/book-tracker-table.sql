@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS read_book;
 DROP TABLE IF EXISTS publisher;
 DROP TABLE IF EXISTS genre;
 DROP TABLE IF EXISTS recommendation;
@@ -47,6 +48,24 @@ CREATE TABLE publisher (
         publisher_name varchar (100) NOT NULL,
         
         CONSTRAINT pk_publisher PRIMARY KEY (publisher_id)
+
+);
+
+CREATE TABLE read_book (
+
+        book_id serial NOT NULL, --constraint
+        title varchar(100) NOT NULL,
+        themes varchar(300) NULL,
+        debut varchar(100) NOT NULL, --constraint 
+        backlist boolean DEFAULT FALSE,
+        format varchar(100) NOT NULL, --constraint
+        source_read varchar(100) NOT NULL, --constraint
+        publication_date date NOT NULL,
+        page_count integer NULL,
+        audiobook_length integer NULL, --constraint??
+         
+        
+        
 
 );
 
