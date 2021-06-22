@@ -53,16 +53,26 @@ CREATE TABLE publisher (
 
 CREATE TABLE read_book (
 
-        book_id serial NOT NULL, --constraint
+        book_id serial NOT NULL, -- pk constraint
         title varchar(100) NOT NULL,
-        themes varchar(300) NULL,
-        debut varchar(100) NOT NULL, --constraint 
-        backlist boolean DEFAULT FALSE,
-        format varchar(100) NOT NULL, --constraint
-        source_read varchar(100) NOT NULL, --constraint
+        author_id int NOT NULL, -- fk constraint
+        publisher_id int NOT NULL, -- fk constraint
         publication_date date NOT NULL,
+        start_date date NOT NULL,
+        finish_date date NOT NULL,
+        star_rating numeric NOT NULL, -- book is a successful recommendation when rating is higher than 3.5
+        debut varchar(100) NOT NULL, -- check constraint 
+        backlist boolean DEFAULT FALSE,
+        format varchar(100) NOT NULL, -- check constraint
+        source_read varchar(100) NOT NULL, --check constraint
         page_count integer NULL,
-        audiobook_length integer NULL, --constraint??
+        audiobook_length integer NULL, -- constraint??
+        story_diversity boolean DEFAULT FALSE,
+        continent_location varchar(300) NOT NULL, -- check constraint
+        city_country varchar(300) NOT NULL, -- check constraint
+        notes varchar(500) NULL,
+        
+
          
         
         
